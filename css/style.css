@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+html::-webkit-scrollbar{
+    width:.1rem;
+}
+html::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background-color:rgb(2, 48, 63);
+}
+
+*{
+    margin:0;padding:0;
+    outline:none;border:none;
+    font-family: 'Source Sans Pro', sans-serif;
+    box-sizing:border-box;
+}
+
+/* header of page  */
+header{
+    width:100%;
+    z-index:222;
+    background-color:rgb(201, 201, 201);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .like_logo{
+    font-size:24px;
+    padding:.5rem;
+    color:rgb(2, 48, 63);
+}
+/* navber that have a list item to select section */
+#nav_list li{
+    display: inline-block;
+}
+#nav_list .item_link{
+    font-size:23px;
+    font-weight: 600;
+    padding:.5rem;
+    margin-right:.7rem;
+    cursor: pointer;
+    transition: .4s;
+    border-radius: 5px;
+    text-decoration: none;
+    color:black;
+}
+#nav_list .item_link:hover{
+    background-color: rgb(4, 56, 84);
+    color:aliceblue;
+}
+
+/* start the content of page */
+
+.main .head{
+    width:100%;
+    height:30vh;
+    padding:20px;
+    background-image: linear-gradient(to right,rgb(2, 26, 39) ,rgb(21, 75, 104) );
+}
+.main .head h1{
+    font-size: 40px;
+    color:rgb(189, 193, 193);
+    text-align: center;
+    
+}
+/* start section in page  */
+.main section{
+    width:100%;height:90vh;
+    padding:1.3rem 5rem;
+    position: relative;
+    background-image: linear-gradient(to bottom,rgb(21, 75, 104) ,rgb(2, 26, 39) );
+}
+.main section h2{
+    font-size:44px;
+    color:rgb(3, 203, 225);
+    font-weight: 700;
+    margin:2.3rem;
+    padding:1.2rem;
+    width:fit-content;
+    border-bottom:2px solid rgb(3, 203, 225);
+}
+.main section p{
+    max-width:560px;
+    font-size:20px;
+    font-weight: 400;
+    color:aliceblue;
+    margin:4rem 5rem;
+}
+
+/* footer */
+footer{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color:rgb(201, 201, 201);
+    padding:.5rem;
+}
+footer h3{
+    font-size: 26px;
+}
+footer p{
+    font-size: 26px;
+}
+
+
+/* media for respostivity */
+@media only screen and (min-width: 35em){
+    h1 {
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
+    
+}
+
+@media (max-width:740px){
+    .main .head h2{
+        font-size: 33px;
+        margin:.7rem;
+        
+    }
+    .main section p{
+        font-size:18px;
+        margin:.7rem;
+    }
+    .main section{
+        padding:1.5rem;
+    }
+    header{
+        flex-direction: column;
+    }
+    #nav_list .item_link{
+        font-size: 18px;
+        
+    }
+}
+
+/* animation in section */
+section div::before{
+    content:"";
+    width:200px;height:200px;
+    background: rgb(21, 93, 189);
+    background: linear-gradient(130deg, rgba(2, 44, 96, 0.1) 0%, rgba(6, 6, 34, 0.2) 100%);
+    border-radius:50%;
+    transition: ease 0.5s all;
+    position:absolute;
+    top:4rem;right:5rem;
+    
+}
+section div::after{
+    content:"";
+    background: rgb(21, 93, 189);
+    background: linear-gradient(to right, rgba(2, 30, 63, 0.1) 0%, rgba(8, 8, 26, 0.2) 100%);
+    position: absolute;
+    right:15rem ;bottom: 40%;
+    width: 70vh;height: 6vh;
+    transition: ease 0.5s all;
+}
+section.active div::before {
+    opacity: 1;
+    animation: rotate 4s linear .4s infinite forwards;
+}
+
+section.active div::after {
+    opacity: 1;
+    animation: translate 3.7s linear .4s infinite forwards reverse;
+}
+
+
+@keyframes rotate{
+	from {
+		transform: rotate(0deg)
+		           translate(3em)
+		           rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(3em) 
+		           rotate(-360deg);
+	}
+}
+
+@keyframes translate{
+	from {
+		transform: translate(0)
+	}
+	to {
+		transform: translate(4em)
+	}
+}
